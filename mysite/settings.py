@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 #rest frame work
-REST_FRAMEWORK = {
+REST_FRAMEWORK = {  #this can control pagination, api auth,
     'DEFAULT_PERMISSION_CLASSES' : [
+        #if use 'rest_framework.permissions.IsAdminUser' only admin can use
         'rest_framework.permissions.AllowAny',
     ]
 }

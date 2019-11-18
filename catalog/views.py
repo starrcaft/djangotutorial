@@ -8,9 +8,11 @@ from .serializers import PostSerializer
 # Create your views here.
 
 
-def post_list(request):
-    posts= Post.objects
-    return render(request, 'catalog/post_list.html', {})
+#def post_list(request):
+class postViewSet (viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    #return render(request, 'catalog/post_list.html', {})
 
 class DetailPost(viewsets.ModelViewSet) :
     qeuryset = Post.objects.all()

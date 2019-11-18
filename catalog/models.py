@@ -2,6 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+# use db with ORM. in model private use field of db
+# to make data to native data(json, xml) must make serializers
 class Post(models.Model):
     #author= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title= models.CharField(max_length=200)
