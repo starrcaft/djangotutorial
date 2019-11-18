@@ -1,9 +1,17 @@
 from django.shortcuts import render
-from django.utils import timezone
+# rest frame work
+from rest_framework import viewsets
+from .serializers import PostSerializer
+
 from .models import Post
+from .serializers import PostSerializer
 # Create your views here.
 
 
 def post_list(request):
-    posts= Post.objects.filter(published_date__timezone.now()).order_by('published_date')
+    posts= Post.objects
     return render(request, 'catalog/post_list.html', {})
+
+class DetailPost(viewsets.ModelViewSet) :
+    qeuryset = Post.objects.all()
+    serializer_class = PostSerializer
